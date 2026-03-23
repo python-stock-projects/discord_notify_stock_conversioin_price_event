@@ -1,12 +1,13 @@
 
 import sys
 import requests
+import os
 
 from stock_conversion_price import check_news  # 匯入函式
 
 
 def notify_discord_greenshoots_webhook(msg):
-    url = 'https://discord.com/api/webhooks/1346034545400746045/n8uWDH-T7l_fVth5wUZhZuzzVVwAVb6JbV1l-LuS7jk0-FRM4QOR5u6Ja2zo4ViZ4D6H'
+    url = os.getenv('DISCORD_WEBHOOK_URL')
     headers = {"Content-Type": "application/json"}
     data = {"content": msg, "username": "Greenshoots News"}
     res = requests.post(url, headers = headers, json = data) 

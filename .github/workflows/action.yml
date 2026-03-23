@@ -24,5 +24,7 @@ jobs:
           pip install requests beautifulsoup4 feedparser
 
       - name: Run the script
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           python run.py   # 將 'run.py' 換成你要執行的程式檔案名稱
